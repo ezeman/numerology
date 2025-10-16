@@ -1,5 +1,6 @@
 "use client";
 import { useForm } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { analyzePhone, AnalyzePhoneResult } from '@/lib/scoring';
@@ -11,11 +12,7 @@ const schema = z.object({
 });
 
 export default function NumerologyFormPhone({ onAnalyzed }: { onAnalyzed: (r: AnalyzePhoneResult) => void }) {
-  const t = (k: string) => ({
-    analyze: 'Analyze',
-    phoneLabel: 'Phone Number',
-    dobLabel: 'Birthdate (not stored)'
-  } as any)[k] || k;
+  const t = useTranslations('home');
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema)
   });
