@@ -46,6 +46,30 @@ export default function ResultsSummary({
             <ul className="list-disc pl-5 text-sm text-green-700 dark:text-green-300">
               {renderWithExplain(result.summary.highlights)}
             </ul>
+            {/* Pair details directly under highlights */}
+            <div className="mt-3 space-y-2">
+              {result.pairs
+                .filter(p => (pairExplains as any)[p.pair])
+                .map((p, idx) => {
+                  const explain = (pairExplains as any)[p.pair]?.[locale];
+                  const label = p.meaning?.[locale];
+                  return (
+                    <div key={idx} className="text-sm">
+                      <div className="font-medium">
+                        {p.pair}: {label}
+                        {p.score !== 0 && (
+                          <span className={"ml-2 text-xs rounded px-1 " + (p.score > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700')}>
+                            {p.score > 0 ? '+' : ''}{p.score}
+                          </span>
+                        )}
+                      </div>
+                      {explain && (
+                        <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">{explain}</p>
+                      )}
+                    </div>
+                  );
+                })}
+            </div>
           </div>
           <div>
             <h3 className="font-medium">{t('watchouts')}</h3>
