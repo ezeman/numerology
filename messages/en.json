@@ -25,6 +25,7 @@
     "finalGrade": "Final Grade",
     "highlights": "Highlights",
     "watchouts": "Watchouts",
+    "pairDetails": "Pair Details",
     "totalSum": "Total Sum",
     "digitalRoot": "Digital Root",
     "pairs": "Pairs",
@@ -37,4 +38,3 @@
     "plate": "Invalid plate format"
   }
 }
-

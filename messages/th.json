@@ -37,4 +37,44 @@
     "plate": "รูปแบบป้ายทะเบียนไม่ถูกต้อง"
   }
 }
+{
+  "home": {
+    "tabPhone": "�������Ѿ��",
+    "tabPlate": "���·���¹",
+    "analyze": "��������",
+    "phoneLabel": "�����Ţ���Ѿ��",
+    "dobLabel": "�ѹ�Դ (���ѹ�֡)",
+    "plateLabel": "���·���¹",
+    "results": "�š����������",
+    "save": "�ѹ�֡",
+    "copyLink": "�Ѵ�͡�ԧ��",
+    "exportPdf": "���͡ PDF"
+  },
+  "header": {
+    "title": "Numerology Pro",
+    "about": "����ǡѺ",
+    "theme": "���",
+    "language": "����"
+  },
+  "about": {
+    "title": "����ǡѺ Numerology Pro",
+    "desc": "����ͧ������������Ţ��ʵ��: �� + �չ (�ҵ�) + ���ѹ��"
+  },
+  "results": {
+    "finalGrade": "�ô���",
+    "highlights": "�ش��",
+    "watchouts": "��ͤ�����ѧ",
+    "pairDetails": "รายละเอียดคู่เลข",
+    "totalSum": "���������Ţ",
+    "digitalRoot": "�ԨԷ���ٷ",
+    "pairs": "�Ţ���",
+    "wuXing": "�ҵ� (Wu Xing)",
+    "suggestions": "����ʹ���",
+    "suggestedEndings": "�Ţŧ�����й�"
+  },
+  "errors": {
+    "phone": "��͡੾�е���Ţ 9�10 ��ѡ",
+    "plate": "�ٻẺ���·���¹���١��ͧ"
+  }
+}
 

@@ -48,6 +48,7 @@ export default function ResultsSummary({
             </ul>
             {/* Pair details directly under highlights */}
             <div className="mt-3 space-y-2">
+              <div className="text-sm font-medium mb-1">{t('pairDetails')}</div>
               {result.pairs
                 .filter(p => (pairExplains as any)[p.pair])
                 .map((p, idx) => {
