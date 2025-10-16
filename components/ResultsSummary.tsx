@@ -1,7 +1,8 @@
 import PairChips from '@/components/PairChips';
 import WuXingChart from '@/components/WuXingChart';
 import { AnalyzePhoneResult, AnalyzePlateResult } from '@/lib/scoring';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import pairExplains from '@/data/pairExplanations.json';
 
 export default function ResultsSummary({
   result,
@@ -11,6 +12,27 @@ export default function ResultsSummary({
   mode: 'phone' | 'plate';
 }) {
   const t = useTranslations('results');
+  const locale = useLocale() as 'th' | 'en';
+
+  const renderWithExplain = (items: string[]) => {
+    return items.map((text, i) => {
+      const m = text.match(/^(\d{2}):\s*(.*)$/);
+      if (!m) return (
+        <li key={i}>{text}</li>
+      );
+      const code = m[1];
+      const label = m[2];
+      const explain = (pairExplains as any)[code]?.[locale];
+      return (
+        <li key={i}>
+          <div>{code}: {label}</div>
+          {explain && (
+            <p className="mt-1 text-xs text-gray-600 dark:text-gray-300">{explain}</p>
+          )}
+        </li>
+      );
+    });
+  };
   return (
     <section aria-label="results" className="grid gap-4 md:grid-cols-3">
       <div className="card p-4 space-y-3 md:col-span-2">
@@ -22,17 +44,13 @@ export default function ResultsSummary({
           <div>
             <h3 className="font-medium">{t('highlights')}</h3>
             <ul className="list-disc pl-5 text-sm text-green-700 dark:text-green-300">
-              {result.summary.highlights.map((h, i) => (
-                <li key={i}>{h}</li>
-              ))}
+              {renderWithExplain(result.summary.highlights)}
             </ul>
           </div>
           <div>
             <h3 className="font-medium">{t('watchouts')}</h3>
             <ul className="list-disc pl-5 text-sm text-red-700 dark:text-red-300">
-              {result.summary.watchouts.map((w, i) => (
-                <li key={i}>{w}</li>
-              ))}
+              {renderWithExplain(result.summary.watchouts)}
             </ul>
           </div>
         </div>
