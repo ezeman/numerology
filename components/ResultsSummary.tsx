@@ -14,15 +14,39 @@ export default function ResultsSummary({
   const t = useTranslations('results');
   const locale = useLocale() as 'th' | 'en';
 
+  const pairMap = new Map(result.pairs.map((p) => [p.pair, p] as const));
+
+  function reversePair(code: string) {
+    return code.length === 2 ? `${code[1]}${code[0]}` : code;
+  }
+
+  function getExplainForPair(code: string, label: string, score: number | undefined) {
+    const explicit = (pairExplains as any)[code]?.[locale] || (pairExplains as any)[reversePair(code)]?.[locale];
+    if (explicit) return explicit as string;
+    // Fallback generic explanation so that all possible pairs have some details
+    if (score && score > 0) {
+      return locale === 'th'
+        ? `${label} โดยรวมเอื้อต่อการงาน/ความสัมพันธ์ แนะนำต่อยอดจุดแข็งให้ชัด เช่น ตั้งเป้าหมายรายสัปดาห์และติดตามผล เพื่อเก็บเกี่ยวพลังของคู่เลขนี้ให้เต็มที่`
+        : `${label} generally supports work/relationships. Tip: double down on the strength with weekly goals and tracking to fully leverage this pair.`;
+    } else if (score && score < 0) {
+      return locale === 'th'
+        ? `${label} มีจุดที่ควรระวัง แนะนำจัดตาราง/งบประมาณให้ชัด และตั้งวันพักหรือรีวิวงาน เพื่อลดผลกระทบของคู่เลขนี้`
+        : `${label} has caution flags. Tip: add structure (schedule/budget) and periodic reviews or rest to mitigate the pair’s downside.`;
+    }
+    return locale === 'th'
+      ? `${label} เป็นกลาง ไม่ได้ส่งเสริมหรือถ่วงมากนัก ควรโฟกัสองค์ประกอบอื่นประกอบการตัดสินใจ`
+      : `${label} is neutral; focus on other components for decisions.`;
+  }
+
   const renderWithExplain = (items: string[]) => {
     return items.map((text, i) => {
       const m = text.match(/^(\d{2}):\s*(.*)$/);
-      if (!m) return (
-        <li key={i}>{text}</li>
-      );
+      if (!m) return <li key={i}>{text}</li>;
       const code = m[1];
-      const label = m[2];
-      const explain = (pairExplains as any)[code]?.[locale];
+      const labelFromText = m[2];
+      const p = pairMap.get(code) || pairMap.get(reversePair(code));
+      const label = p?.meaning?.[locale] || labelFromText;
+      const explain = getExplainForPair(code, label, p?.score);
       return (
         <li key={i}>
           <div>{code}: {label}</div>
@@ -52,7 +76,7 @@ export default function ResultsSummary({
               {result.pairs
                 .filter(p => (pairExplains as any)[p.pair])
                 .map((p, idx) => {
-                  const explain = (pairExplains as any)[p.pair]?.[locale];
+                  const explain = getExplainForPair(p.pair, p.meaning?.[locale] || '', p.score);
                   const label = p.meaning?.[locale];
                   return (
                     <div key={idx} className="text-sm">
