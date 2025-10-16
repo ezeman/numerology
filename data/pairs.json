@@ -1,0 +1,28 @@
+{
+  "pairs": [
+    { "pair": "15", "th": "ผู้ใหญ่เมตตา, เจรจาเก่ง", "en": "support from seniors, negotiation", "weight": 2 },
+    { "pair": "51", "th": "ผู้ใหญ่เมตตา, เจรจาเก่ง", "en": "support from seniors, negotiation", "weight": 2 },
+    { "pair": "24", "th": "เสน่ห์ การค้า", "en": "charm, commerce", "weight": 2 },
+    { "pair": "42", "th": "เสน่ห์ การค้า", "en": "charm, commerce", "weight": 2 },
+    { "pair": "36", "th": "อำนาจ คำพูด", "en": "powerful speech", "weight": 2 },
+    { "pair": "63", "th": "อำนาจ คำพูด", "en": "powerful speech", "weight": 2 },
+    { "pair": "45", "th": "มั่นคง สมดุล", "en": "stable, balanced", "weight": 2 },
+    { "pair": "54", "th": "มั่นคง สมดุล", "en": "stable, balanced", "weight": 2 },
+    { "pair": "56", "th": "ความสำเร็จ โอกาส", "en": "success, opportunities", "weight": 2 },
+    { "pair": "65", "th": "ความสำเร็จ โอกาส", "en": "success, opportunities", "weight": 2 },
+
+    { "pair": "13", "th": "เครียด อ่อนล้า", "en": "stress, fatigue", "weight": -2 },
+    { "pair": "31", "th": "เครียด อ่อนล้า", "en": "stress, fatigue", "weight": -2 },
+    { "pair": "37", "th": "อารมณ์ร้อน ขัดแย้ง", "en": "temper, clashes", "weight": -2 },
+    { "pair": "73", "th": "อารมณ์ร้อน ขัดแย้ง", "en": "temper, clashes", "weight": -2 },
+    { "pair": "18", "th": "อารมณ์ขึ้นลง ฟุ่มเฟือย", "en": "mood swings, excess", "weight": -2 },
+    { "pair": "81", "th": "อารมณ์ขึ้นลง ฟุ่มเฟือย", "en": "mood swings, excess", "weight": -2 },
+    { "pair": "67", "th": "เงินรั่ว ทำงานหนัก", "en": "money churn, overwork", "weight": -2 },
+    { "pair": "76", "th": "เงินรั่ว ทำงานหนัก", "en": "money churn, overwork", "weight": -2 },
+
+    { "pair": "66", "th": "กลมเกลียว ครอบครัว", "en": "harmony, family", "weight": 2 },
+    { "pair": "69", "th": "ดึงดูด แม่เหล็ก", "en": "magnetic attraction", "weight": 2 },
+    { "pair": "96", "th": "ดึงดูด แม่เหล็ก", "en": "magnetic attraction", "weight": 2 }
+  ]
+}
+

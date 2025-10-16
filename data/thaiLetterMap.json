@@ -1,0 +1,17 @@
+{
+  "_comment": "Thai consonants ก-ฮ mapped to sequential indices 1..44. Value = digital root of index (1-9). Edit indices to adjust weighting.",
+  "letters": [
+    { "ch": "ก", "index": 1 }, { "ch": "ข", "index": 2 }, { "ch": "ฃ", "index": 3 }, { "ch": "ค", "index": 4 },
+    { "ch": "ฅ", "index": 5 }, { "ch": "ฆ", "index": 6 }, { "ch": "ง", "index": 7 }, { "ch": "จ", "index": 8 },
+    { "ch": "ฉ", "index": 9 }, { "ch": "ช", "index": 10 }, { "ch": "ซ", "index": 11 }, { "ch": "ฌ", "index": 12 },
+    { "ch": "ญ", "index": 13 }, { "ch": "ฎ", "index": 14 }, { "ch": "ฏ", "index": 15 }, { "ch": "ฐ", "index": 16 },
+    { "ch": "ฑ", "index": 17 }, { "ch": "ฒ", "index": 18 }, { "ch": "ณ", "index": 19 }, { "ch": "ด", "index": 20 },
+    { "ch": "ต", "index": 21 }, { "ch": "ถ", "index": 22 }, { "ch": "ท", "index": 23 }, { "ch": "ธ", "index": 24 },
+    { "ch": "น", "index": 25 }, { "ch": "บ", "index": 26 }, { "ch": "ป", "index": 27 }, { "ch": "ผ", "index": 28 },
+    { "ch": "ฝ", "index": 29 }, { "ch": "พ", "index": 30 }, { "ch": "ฟ", "index": 31 }, { "ch": "ภ", "index": 32 },
+    { "ch": "ม", "index": 33 }, { "ch": "ย", "index": 34 }, { "ch": "ร", "index": 35 }, { "ch": "ล", "index": 36 },
+    { "ch": "ว", "index": 37 }, { "ch": "ศ", "index": 38 }, { "ch": "ษ", "index": 39 }, { "ch": "ส", "index": 40 },
+    { "ch": "ห", "index": 41 }, { "ch": "ฬ", "index": 42 }, { "ch": "อ", "index": 43 }, { "ch": "ฮ", "index": 44 }
+  ]
+}
+

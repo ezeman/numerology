@@ -1,0 +1,40 @@
+{
+  "home": {
+    "tabPhone": "เบอร์โทรศัพท์",
+    "tabPlate": "ป้ายทะเบียน",
+    "analyze": "วิเคราะห์",
+    "phoneLabel": "หมายเลขโทรศัพท์",
+    "dobLabel": "วันเกิด (ไม่บันทึก)",
+    "plateLabel": "ป้ายทะเบียน",
+    "results": "ผลการวิเคราะห์",
+    "save": "บันทึก",
+    "copyLink": "คัดลอกลิงก์",
+    "exportPdf": "ส่งออก PDF"
+  },
+  "header": {
+    "title": "Numerology Pro",
+    "about": "เกี่ยวกับ",
+    "theme": "ธีม",
+    "language": "ภาษา"
+  },
+  "about": {
+    "title": "เกี่ยวกับ Numerology Pro",
+    "desc": "เครื่องมือวิเคราะห์เลขศาสตร์: ไทย + จีน (ธาตุ) + ตะวันตก"
+  },
+  "results": {
+    "finalGrade": "เกรดรวม",
+    "highlights": "จุดเด่น",
+    "watchouts": "ข้อควรระวัง",
+    "totalSum": "ผลรวมตัวเลข",
+    "digitalRoot": "ดิจิทัลรูท",
+    "pairs": "เลขคู่",
+    "wuXing": "ธาตุ (Wu Xing)",
+    "suggestions": "ข้อเสนอแนะ",
+    "suggestedEndings": "เลขลงท้ายแนะนำ"
+  },
+  "errors": {
+    "phone": "กรอกเฉพาะตัวเลข 9–10 หลัก",
+    "plate": "รูปแบบป้ายทะเบียนไม่ถูกต้อง"
+  }
+}
+

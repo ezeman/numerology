@@ -1,0 +1,40 @@
+{
+  "home": {
+    "tabPhone": "Phone Number",
+    "tabPlate": "License Plate",
+    "analyze": "Analyze",
+    "phoneLabel": "Phone Number",
+    "dobLabel": "Birthdate (not stored)",
+    "plateLabel": "License Plate",
+    "results": "Results",
+    "save": "Save",
+    "copyLink": "Copy Link",
+    "exportPdf": "Export PDF"
+  },
+  "header": {
+    "title": "Numerology Pro",
+    "about": "About",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "about": {
+    "title": "About Numerology Pro",
+    "desc": "Numerology analyzer: Thai + Chinese (elements) + Western"
+  },
+  "results": {
+    "finalGrade": "Final Grade",
+    "highlights": "Highlights",
+    "watchouts": "Watchouts",
+    "totalSum": "Total Sum",
+    "digitalRoot": "Digital Root",
+    "pairs": "Pairs",
+    "wuXing": "Wu Xing (Elements)",
+    "suggestions": "Suggestions",
+    "suggestedEndings": "Suggested Endings"
+  },
+  "errors": {
+    "phone": "Digits only, 9–10 length",
+    "plate": "Invalid plate format"
+  }
+}
+

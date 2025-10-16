@@ -1,0 +1,15 @@
+{
+  "pairWeights": { "positive": 2, "caution": -2 },
+  "elementBonusThreshold": 2,
+  "elementBonus": 1,
+  "westernRanges": [
+    { "range": [23, 32], "label": {"th": "วาทศิลป์/เสน่ห์", "en": "eloquence/charisma"} },
+    { "range": [36, 63], "label": {"th": "ความมุ่งมั่น", "en": "drive/achievement"} },
+    { "range": [45, 54], "label": {"th": "สมดุล/มั่นคง", "en": "balance/stability"} },
+    { "range": [56, 65], "label": {"th": "โอกาส/โชค", "en": "fortune/opportunities"} },
+    { "range": [66, 66], "label": {"th": "ครอบครัว/กลมเกลียว", "en": "harmony/family"} },
+    { "range": [69, 69], "label": {"th": "แรงดึงดูด", "en": "magnetic attraction"} },
+    { "range": [96, 96], "label": {"th": "แรงดึงดูด", "en": "magnetic attraction"} }
+  ]
+}
+
