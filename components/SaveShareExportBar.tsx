@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function SaveShareExportBar({
   mode,
@@ -8,11 +9,7 @@ export default function SaveShareExportBar({
   mode: 'phone' | 'plate';
   result: any;
 }) {
-  const t = (k: string) => ({
-    save: 'Save',
-    copyLink: 'Copy Link',
-    exportPdf: 'Export PDF'
-  } as any)[k] || k;
+  const t = useTranslations('home');
   const [saving, setSaving] = useState(false);
 
   const saveLocal = () => {

@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-// Temporarily remove next-intl provider to bypass SSR error
+import { NextIntlClientProvider } from 'next-intl';
 import { ThemeProvider } from 'next-themes';
 import { ReactNode } from 'react';
 import { getMessages } from '@/lib/i18n';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  const { lang } = await getMessages();
+  const { lang, messages } = await getMessages();
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
@@ -24,11 +24,13 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       </head>
       <body className="min-h-screen antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <NextIntlClientProvider messages={messages} timeZone="Asia/Bangkok">
             <div className="flex min-h-screen flex-col">
               <Header />
               <main className="container mx-auto max-w-5xl flex-1 px-4 py-6">{children}</main>
               <Footer />
             </div>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

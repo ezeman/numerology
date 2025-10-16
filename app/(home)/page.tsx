@@ -1,5 +1,6 @@
 "use client";
 import { useMemo, useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { Tabs } from '@/components/Tabs';
 import NumerologyFormPhone from '@/components/NumerologyFormPhone';
 import NumerologyFormPlate from '@/components/NumerologyFormPlate';
@@ -10,6 +11,7 @@ import { AnalyzePhoneResult, AnalyzePlateResult } from '@/lib/scoring';
 type Mode = 'phone' | 'plate';
 
 export default function HomePage() {
+  const t = useTranslations('home');
   const [mode, setMode] = useState<Mode>('phone');
   const [phoneResult, setPhoneResult] = useState<AnalyzePhoneResult | null>(null);
   const [plateResult, setPlateResult] = useState<AnalyzePlateResult | null>(null);
@@ -28,8 +30,8 @@ export default function HomePage() {
       <div className="card p-4">
         <Tabs
           tabs={[
-            { id: 'phone', label: 'Phone' },
-            { id: 'plate', label: 'Plate' },
+            { id: 'phone', label: t('tabPhone') },
+            { id: 'plate', label: t('tabPlate') },
           ]}
           value={mode}
           onChange={(v) => setMode(v as Mode)}

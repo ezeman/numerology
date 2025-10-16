@@ -1,10 +1,7 @@
-import { cookies } from 'next/headers';
-import th from '@/messages/th.json';
-import en from '@/messages/en.json';
+import {getLocale, getMessages as getIntlMessages} from 'next-intl/server';
 
 export async function getMessages(): Promise<{ lang: 'th' | 'en'; messages: any }> {
-  const c = cookies();
-  const lang = (c.get('NEXT_LOCALE')?.value as 'th' | 'en') || 'th';
-  const messages = lang === 'th' ? th : en;
+  const lang = (await getLocale()) as 'th' | 'en';
+  const messages = await getIntlMessages();
   return { lang, messages };
 }

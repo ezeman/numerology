@@ -1,6 +1,7 @@
 import PairChips from '@/components/PairChips';
 import WuXingChart from '@/components/WuXingChart';
 import { AnalyzePhoneResult, AnalyzePlateResult } from '@/lib/scoring';
+import { useTranslations } from 'next-intl';
 
 export default function ResultsSummary({
   result,
@@ -9,17 +10,7 @@ export default function ResultsSummary({
   result: AnalyzePhoneResult | AnalyzePlateResult;
   mode: 'phone' | 'plate';
 }) {
-  const t = (k: string) => ({
-    finalGrade: 'Final Grade',
-    highlights: 'Highlights',
-    watchouts: 'Watchouts',
-    totalSum: 'Total Sum',
-    digitalRoot: 'Digital Root',
-    pairs: 'Pairs',
-    wuXing: 'Wu Xing (Elements)',
-    suggestions: 'Suggestions',
-    suggestedEndings: 'Suggested Endings'
-  } as any)[k] || k;
+  const t = useTranslations('results');
   return (
     <section aria-label="results" className="grid gap-4 md:grid-cols-3">
       <div className="card p-4 space-y-3 md:col-span-2">
