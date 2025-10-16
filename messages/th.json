@@ -65,6 +65,9 @@
     "highlights": "�ش��",
     "watchouts": "��ͤ�����ѧ",
     "pairDetails": "รายละเอียดคู่เลข",
+    "filterAll": "ทั้งหมด",
+    "filterPositive": "คู่บวก",
+    "filterNegative": "คู่ลบ",
     "totalSum": "���������Ţ",
     "digitalRoot": "�ԨԷ���ٷ",
     "pairs": "�Ţ���",
@@ -77,4 +80,3 @@
     "plate": "�ٻẺ���·���¹���١��ͧ"
   }
 }
-

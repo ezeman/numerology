@@ -4,6 +4,7 @@ import { AnalyzePhoneResult, AnalyzePlateResult } from '@/lib/scoring';
 import { useTranslations, useLocale } from 'next-intl';
 import pairExplains from '@/data/pairExplanations.json';
 import { CheckCircle, AlertTriangle, Info } from 'lucide-react';
+import { useState } from 'react';
 
 export default function ResultsSummary({
   result,
@@ -14,6 +15,7 @@ export default function ResultsSummary({
 }) {
   const t = useTranslations('results');
   const locale = useLocale() as 'th' | 'en';
+  const [filter, setFilter] = useState<'all' | 'pos' | 'neg'>('all');
 
   const pairMap = new Map(result.pairs.map((p) => [p.pair, p] as const));
 
@@ -24,7 +26,9 @@ export default function ResultsSummary({
   function getCategoryFromMeaning(en?: string) {
     const s = (en || '').toLowerCase();
     if (/(charm|commerce)/.test(s)) return 'charm';
-    if (/(speech|negotiation|communicat)/.test(s)) return 'communication';
+    if (/(senior|support|mentor)/.test(s)) return 'mentorship';
+    if (/(powerful|influence|speech)/.test(s)) return 'influence';
+    if (/(negotiation|communicat)/.test(s)) return 'communication';
     if (/(stable|balance|balanced)/.test(s)) return 'stability';
     if (/(success|opportun)/.test(s)) return 'opportunity';
     if (/(stress|fatigue|temper|clash|mood)/.test(s)) return 'emotion';
@@ -42,6 +46,14 @@ export default function ResultsSummary({
           return positive
             ? 'เด่นด้านเสน่ห์/การสื่อสาร แนะนำใช้ช่องทางโซเชียล–เครือข่าย เพิ่มโอกาสปิดการขาย'
             : 'ระวังสื่อสารคลาดเคลื่อน ตั้งสรุปงาน/ประเด็นคุยล่วงหน้า ช่วยลดความเข้าใจผิด';
+        case 'mentorship':
+          return positive
+            ? 'มีแรงหนุนจากผู้ใหญ่/ที่ปรึกษา ใช้โอกาสนี้ขอคำแนะนำ–รีวิวงาน เพื่อย่นเวลาเรียนรู้'
+            : 'อาจพึ่งพาผู้ใหญ่เกินไป วางแผนพัฒนาทักษะตนเองควบคู่ ลดความเสี่ยงระยะยาว';
+        case 'influence':
+          return positive
+            ? 'พลังอิทธิพล/การโน้มน้าวสูง ใช้ด้วยความนุ่มนวลและชัดเจน จะสร้างความไว้วางใจ'
+            : 'ระวังใช้ถ้อยคำกดดัน ปรับโทนเป็นเชิงชวน–ยกเหตุผล ให้เกิดความร่วมมือ';
         case 'stability':
           return positive
             ? 'หนุนความมั่นคง–สมดุล วางแผนระยะยาว–งบประมาณชัด ทำให้ก้าวคงเส้นคงวา'
@@ -78,6 +90,14 @@ export default function ResultsSummary({
           return positive
             ? 'Strength in charm/communication; leverage social channels and networking to raise close rates.'
             : 'Mind miscommunication; prepare agendas/summaries to reduce misunderstanding.';
+        case 'mentorship':
+          return positive
+            ? 'Backed by seniors/mentors; ask for reviews and guidance to accelerate learning.'
+            : 'Beware over-relying on seniors; build self-sufficiency in parallel.';
+        case 'influence':
+          return positive
+            ? 'Strong influence/persuasion; combine clarity with empathy to build trust.'
+            : 'Avoid pressuring tone; reframe with reasons and invitations to collaborate.';
         case 'stability':
           return positive
             ? 'Supports stability/balance; keep long-term plans and budgets for steady progress.'
@@ -153,8 +173,23 @@ export default function ResultsSummary({
             {/* Pair details directly under highlights */}
             <div className="mt-3 space-y-3 border-t border-gray-200 dark:border-gray-800 pt-3">
               <div className="text-sm font-medium mb-1">{t('pairDetails')}</div>
+              <div className="flex items-center gap-2 text-xs">
+                <button
+                  className={"px-2 py-1 rounded border " + (filter==='all' ? 'bg-gray-200 dark:bg-gray-800' : 'bg-transparent')}
+                  onClick={() => setFilter('all')}
+                >{t('filterAll')}</button>
+                <button
+                  className={"px-2 py-1 rounded border " + (filter==='pos' ? 'bg-green-200 dark:bg-green-900' : 'bg-transparent')}
+                  onClick={() => setFilter('pos')}
+                >{t('filterPositive')}</button>
+                <button
+                  className={"px-2 py-1 rounded border " + (filter==='neg' ? 'bg-red-200 dark:bg-red-900' : 'bg-transparent')}
+                  onClick={() => setFilter('neg')}
+                >{t('filterNegative')}</button>
+              </div>
               {result.pairs
                 .slice()
+                .filter(p => filter==='all' ? true : filter==='pos' ? p.score>0 : p.score<0)
                 .sort((a, b) => {
                   const va = a.score || 0, vb = b.score || 0;
                   // positive first (desc), then neutral, then negative
