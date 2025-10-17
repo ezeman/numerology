@@ -12,12 +12,12 @@ export default function Header() {
   useEffect(() => setMounted(true), []);
 
   const toggleLang = () => {
-    // Toggle NEXT_LOCALE cookie used by next-intl middleware
+    // Toggle via API to set cookie server-side, then redirect back
     const match = document.cookie.match(/(?:^|; )NEXT_LOCALE=([^;]+)/);
     const current = (match ? decodeURIComponent(match[1]) : 'th') as 'th' | 'en';
     const next = current === 'en' ? 'th' : 'en';
-    document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=31536000`;
-    window.location.reload();
+    const redirect = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    window.location.href = `/api/locale?lang=${next}&redirect=${encodeURIComponent(redirect)}`;
   };
 
   return (
@@ -27,10 +27,13 @@ export default function Header() {
           {t('title')}
         </Link>
         <div className="flex items-center gap-2">
+          {/* Language toggle disabled and invisible as requested */}
           <button
             aria-label={t('language')}
-            className="btn-secondary"
-            onClick={toggleLang}
+            className="btn-secondary hidden"
+            aria-hidden="true"
+            disabled
+            title="Language switch is disabled"
           >
             <Languages size={18} />
           </button>
