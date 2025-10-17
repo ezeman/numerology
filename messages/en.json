@@ -25,6 +25,10 @@
     "finalGrade": "Final Grade",
     "highlights": "Highlights",
     "watchouts": "Watchouts",
+    "pairDetails": "Pair Details",
+    "filterAll": "All",
+    "filterPositive": "Positive",
+    "filterNegative": "Negative",
     "totalSum": "Total Sum",
     "digitalRoot": "Digital Root",
     "pairs": "Pairs",
@@ -37,4 +41,3 @@
     "plate": "Invalid plate format"
   }
 }
-

@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       </head>
       <body className="min-h-screen antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NextIntlClientProvider messages={messages} timeZone="Asia/Bangkok">
+          <NextIntlClientProvider messages={messages} locale={lang}>
             <div className="flex min-h-screen flex-col">
               <Header />
               <main className="container mx-auto max-w-5xl flex-1 px-4 py-6">{children}</main>
@@ -36,3 +36,5 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     </html>
   );
 }
+
+export const dynamic = 'force-dynamic';

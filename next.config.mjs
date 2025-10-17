@@ -33,7 +33,8 @@ const baseConfig = {
   }
 };
 
-const withNextIntl = createNextIntlPlugin('./next-intl.config.js');
+// In next-intl v4, the plugin can be used without an explicit config path
+const withNextIntl = createNextIntlPlugin();
 
 export default withNextIntl(withPWA({
   dest: 'public',

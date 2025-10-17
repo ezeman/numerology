@@ -24,5 +24,5 @@
     "types": ["vitest/importMeta", "vitest/globals"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.cjs"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "tmp_scoring.ts"]
 }
